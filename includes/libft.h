@@ -6,7 +6,7 @@
 /*   By: alexp <alexp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:37:48 by alexp             #+#    #+#             */
-/*   Updated: 2020/04/30 23:56:33 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/01 01:29:26 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,31 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+
+/*
+** Char functions
+*/
+int		ft_isalnum(int c);
+int		ft_isalpha(int c);
+int		ft_iscntrl(int c);
+int		ft_isdigit(int c);
+int		ft_isgraph(int c);
+int		ft_islower(int c);
+int		ft_isprint(int c);
+int		ft_ispunct(int c);
+int		ft_isspace(int c);
+int		ft_isupper(int c);
+int		ft_isxdigit(int c);
+
+int		ft_isascii(int c);
+int		ft_isblank(int c);
+
+int		ft_tolower(int c);
+int		ft_toupper(int c);
+
+/*
+** Type convert functions
+*/
+int		ft_atoi(const char *nptr);
 
 #endif
