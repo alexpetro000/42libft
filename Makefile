@@ -6,7 +6,7 @@
 #    By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/01 17:30:20 by afreeze           #+#    #+#              #
-#    Updated: 2020/05/01 17:30:42 by afreeze          ###   ########.fr        #
+#    Updated: 2020/05/02 00:45:33 by afreeze          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ TESTS_C			= $(DIR_TESTS)/$(NAME_TESTS).c
 CC 				= gcc
 CFLAGS 			= -Wall -Wextra -Werror
 CFLAGS_SO		= -Wall -Wextra -Werror -fpic
-CFLAGS_TESTS	= -Wall -lcheck -lcheck -pthread -lcheck_pic -pthread -lrt -lm -lsubunit
+CFLAGS_TESTS	= -Wall -lcheck -lcheck -pthread -pthread -lrt -lm
 
 .PHONY: all clean fclean re test so
 
@@ -63,7 +63,7 @@ test: $(NAME_TESTS)
 	./$(NAME_TESTS)
 
 $(NAME_TESTS): $(NAME) $(TESTS_C)
-	$(CC) $(TESTS_C) $(CFLAGS_TESTS) -I$(DIR_INCLUDES) -L. -l$(NAME:lib%.a=%) -o $(NAME_TESTS)
+	$(CC) $(TESTS_C) $(CFLAGS_TESTS) -I$(DIR_INCLUDES) -L. -l:$(NAME) -o $(NAME_TESTS)
 
 $(DIR_TESTS)/$(NAME_TESTS).c: $(TESTS)
 	checkmk $(TESTS) >$(DIR_TESTS)/$(NAME_TESTS).c
