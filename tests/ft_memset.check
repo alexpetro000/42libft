@@ -1,0 +1,21 @@
+#include "libft.h"
+#include "string.h"
+
+#test ft_memset_test
+	char buf_expected[10000];
+	char buf_actual[10000];
+
+	ck_assert_mem_eq(ft_memset(buf_actual, 5, 10000), memset(buf_expected, 5, 10000), 9999);
+	ck_assert_mem_eq(buf_expected, buf_actual, 9999);
+
+	ck_assert_mem_eq(ft_memset(buf_actual, 'A', 10000),	memset(buf_expected, 'A', 10000), 10000);
+	ck_assert_mem_eq(buf_expected, buf_actual, 10000);
+
+	ck_assert_mem_eq(
+		ft_memset(buf_actual, 12345, 10000),
+		memset(buf_expected, 12345, 10000),
+		10000
+	);
+	ck_assert_mem_eq(buf_expected, buf_actual, 10000);
+
+	//ck_assert_int_eq(5, 6);
