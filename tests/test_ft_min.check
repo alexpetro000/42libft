@@ -1,0 +1,7 @@
+#include "libft.h"
+
+#test ft_min_test
+    fail_unless(ft_min(3, 2) == 2, "ft_max_test function borked");
+    fail_unless(ft_min(-3, 2) == -3, "ft_max_test function borked");
+    fail_unless(ft_min(3, -2) == -2, "ft_max_test function borked");
+    fail_unless(ft_min(-3, -2) == -3, "ft_max_test function borked");
