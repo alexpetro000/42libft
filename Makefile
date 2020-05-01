@@ -1,19 +1,40 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/05/01 17:30:20 by afreeze           #+#    #+#              #
+#    Updated: 2020/05/01 17:30:42 by afreeze          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-NAME 		= libft.a
-NAMESO		= libft.so
+NAME 			= libft.a
+NAME_SO			= libft.so
+NAME_TESTS		= unit-test.out
 
-INC_DIR		= includes
-OBJ_DIR		= obj
-SRC_DIR		= src
+DIR_INCLUDES	= includes
+DIR_OBJ			= obj
+DIR_OBJ_SO		= obj_so
+DIR_SRC			= src
+DIR_TESTS		= tests
 
-CC 			= gcc
-CFLAGS 		= -Wall -Wextra -Werror
+SRCS			= $(subst $(DIR_SRC)/,,$(shell find $(DIR_SRC) -type f -name '*.c'))
+TESTS			= $(shell find $(DIR_TESTS) -type f -name '*.check')
 
-SRCS		= $(subst $(SRC_DIR)/,,$(shell find $(SRC_DIR) -type f -name '*.c'))
-OBJS 		= $(addprefix $(OBJ_DIR)/,$(SRCS:%.c=%.o))
+OBJS 			= $(addprefix $(DIR_OBJ)/,$(SRCS:%.c=%.o))
+OBJS_SO			= $(addprefix $(DIR_OBJ_SO)/,$(SRCS:%.c=%.o))
+TESTS_C			= $(DIR_TESTS)/$(NAME_TESTS).c
 
+CC 				= gcc
+CFLAGS 			= -Wall -Wextra -Werror
+CFLAGS_SO		= -Wall -Wextra -Werror -fpic
+CFLAGS_TESTS	= -Wall -lcheck -lcheck -pthread -lcheck_pic -pthread -lrt -lm -lsubunit
 
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re test so
+
+# ------------------------------------------------------------------------------
 
 all: $(NAME)
 
@@ -21,23 +42,47 @@ $(NAME): $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 	ranlib $(NAME)
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
+$(DIR_OBJ)/%.o : $(DIR_SRC)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -I$(INC_DIR) -o $@ -c $<
+	$(CC) $(CFLAGS) -I$(DIR_INCLUDES) -o $@ -c $<
+
+# ------------------------------------------------------------------------------
+
+so: $(NAME_SO)
+
+$(NAME_SO): $(OBJS_SO)
+	$(CC) -shared -o $(NAME_SO) $(OBJS_SO)
+
+$(DIR_OBJ_SO)/%.o : $(DIR_SRC)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS_SO) -I$(DIR_INCLUDES) -o $@ -c $<
+
+# ------------------------------------------------------------------------------
+
+test: $(NAME_TESTS)
+	./$(NAME_TESTS)
+
+$(NAME_TESTS): $(NAME) $(TESTS_C)
+	$(CC) $(TESTS_C) $(CFLAGS_TESTS) -I$(DIR_INCLUDES) -L. -l$(NAME:lib%.a=%) -o $(NAME_TESTS)
+
+$(DIR_TESTS)/$(NAME_TESTS).c: $(TESTS)
+	checkmk $(TESTS) >$(DIR_TESTS)/$(NAME_TESTS).c
+
+# ------------------------------------------------------------------------------
+
+norm:
+	norminette $(SRCS)
+
+# ------------------------------------------------------------------------------
 
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -rf $(DIR_OBJ)
+	rm -rf $(DIR_OBJ_SO)
+	rm -rf $(TESTS_C)
 
 fclean: clean
 	rm -rf $(NAME)
-
-test:
-	norminette $(SRCS)
-	ceedling test:all
+	rm -rf $(NAME_SO)
+	rm -rf $(NAME_TESTS)
 
 re: fclean all
-
-so: $(NAMESO)
-
-$(NAMESO): $(OBJS)
-	$(CC) -shared -o $(NAMESO) $(OBJS)
