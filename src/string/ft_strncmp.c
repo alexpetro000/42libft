@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   strncmp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/30 23:13:52 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 03:07:58 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/01 00:33:12 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/01 03:18:04 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	while (*s)
+	while (--n && *s1 && *s1 == *s2)
 	{
-		if (*s == c)
-			return ((char*)s);
-		s++;
+		s1++;
+		s2++;
 	}
-	return (NULL);
+	return (*s1 - *s2);
 }

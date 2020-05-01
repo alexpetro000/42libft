@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/30 23:13:52 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 03:07:58 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/01 02:39:11 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/01 03:14:34 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	while (*s)
-	{
-		if (*s == c)
-			return ((char*)s);
-		s++;
-	}
-	return (NULL);
+	register char	*d;
+
+	d = dest;
+	while ((*(d++) = *(src++)) && --n)
+		;
+	while (n--)
+		*(d++) = '\0';
+	return (dest);
 }

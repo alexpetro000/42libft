@@ -1,5 +1,6 @@
 
 NAME 		= libft.a
+NAMESO		= libft.so
 
 INC_DIR		= includes
 OBJ_DIR		= obj
@@ -21,7 +22,7 @@ $(NAME): $(OBJS)
 	ranlib $(NAME)
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
-	mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -I$(INC_DIR) -o $@ -c $<
 
 clean:
@@ -35,3 +36,8 @@ test:
 	ceedling test:all
 
 re: fclean all
+
+so: $(NAMESO)
+
+$(NAMESO): $(OBJS)
+	$(CC) -shared -o $(NAMESO) $(OBJS)

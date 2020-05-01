@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/30 23:13:52 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 03:07:58 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/01 02:01:07 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/01 02:38:11 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strdup(const char *s)
 {
-	while (*s)
-	{
-		if (*s == c)
-			return ((char*)s);
-		s++;
-	}
-	return (NULL);
+	size_t	len;
+
+	len = ft_strlen(s);
+	return (ft_memcpy(malloc(len + 1), s, len + 1));
 }

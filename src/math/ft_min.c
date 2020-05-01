@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/30 23:13:52 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 03:07:58 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/01 03:21:42 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/01 03:23:20 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int		ft_min(int a, int b)
 {
-	while (*s)
-	{
-		if (*s == c)
-			return ((char*)s);
-		s++;
-	}
-	return (NULL);
+	return (a < b ? a : b);
 }

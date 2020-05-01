@@ -6,13 +6,13 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 00:52:54 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 01:04:16 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/01 04:22:59 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+int		ft_isdigit(int c)
 {
 	return ('0' <= c && c <= '9');
 }

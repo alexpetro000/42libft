@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strncmp.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 00:33:12 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 00:39:50 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/01 03:26:14 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/01 03:32:37 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	while (--n && *s1 && *s2 && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
+	int		s1_len;
+	int		s2_len;
+	char	*ss;
+
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	ss = malloc(s1_len + s2_len + 1);
+	ft_strcpy(ss, s1);
+	ft_strcpy(ss + s1_len, s2);
+	return (ss);
 }
