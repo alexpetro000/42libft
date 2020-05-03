@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 15:59:41 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 03:04:24 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/04 00:11:39 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	while (n--)
 	{
-		if (*((unsigned char*)s) == c)
+		if (*((unsigned char*)s) == (unsigned char)c)
 			return ((void*)s);
 		s++;
 	}

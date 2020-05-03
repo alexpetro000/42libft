@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 02:33:09 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 03:09:39 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/04 01:47:21 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_strcpy(char *dest, const char *src)
 {
-	register char *d;
+	char	*d;
 
 	d = dest;
-	while ((*(d++) = (*src++)))
+	while ((*(d++) = *(src++)))
 		;
 	return (dest);
 }

@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 00:54:05 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 01:26:46 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/04 02:41:57 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		ft_tolower(int c)
 {
+	c = (char)c;
 	if (ft_isupper(c))
 		c += 'a' - 'A';
 	return (c);

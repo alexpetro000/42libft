@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 02:30:32 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/03 23:59:40 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/04 02:29:36 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char			*ss;
 	unsigned int	l;
 
+	if (!s)
+		return (NULL);
 	l = ft_strlen(s);
 	if (l < start)
 		l = 0;
