@@ -6,14 +6,14 @@
 /*   By: alexp <alexp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:37:48 by alexp             #+#    #+#             */
-/*   Updated: 2020/05/01 03:33:10 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/03 21:54:41 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>
+# include <stddef.h>
 
 /*
 ** Memory functions

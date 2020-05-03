@@ -1,6 +1,7 @@
 build/
 obj/
 obj_so/
+tests/unit-test.out.c
 
 # Object files
 *.o
