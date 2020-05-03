@@ -6,7 +6,7 @@
 #    By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/01 17:30:20 by afreeze           #+#    #+#              #
-#    Updated: 2020/05/02 00:45:33 by afreeze          ###   ########.fr        #
+#    Updated: 2020/05/03 20:04:01 by afreeze          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,9 @@ OBJS_SO			= $(addprefix $(DIR_OBJ_SO)/,$(SRCS:%.c=%.o))
 TESTS_C			= $(DIR_TESTS)/$(NAME_TESTS).c
 
 CC 				= gcc
-CFLAGS 			= -Wall -Wextra -Werror
-CFLAGS_SO		= -Wall -Wextra -Werror -fpic
-CFLAGS_TESTS	= -Wall -lcheck -lcheck -pthread -pthread -lrt -lm
+CFLAGS 			= -Wall -Wextra -Werror -O3
+CFLAGS_SO		= -Wall -Wextra -Werror -O3 -fpic
+CFLAGS_TESTS	= -Wall -lcheck -lcheck -pthread -pthread -lrt -lm -lbsd
 
 .PHONY: all clean fclean re test so
 
@@ -62,8 +62,8 @@ $(DIR_OBJ_SO)/%.o : $(DIR_SRC)/%.c
 test: $(NAME_TESTS)
 	./$(NAME_TESTS)
 
-$(NAME_TESTS): $(NAME) $(TESTS_C)
-	$(CC) $(TESTS_C) $(CFLAGS_TESTS) -I$(DIR_INCLUDES) -L. -l:$(NAME) -o $(NAME_TESTS)
+$(NAME_TESTS): $(TESTS_C) $(OBJS)
+	$(CC) $(TESTS_C) $(OBJS) $(CFLAGS_TESTS) -I$(DIR_INCLUDES) -o $(NAME_TESTS)
 
 $(DIR_TESTS)/$(NAME_TESTS).c: $(TESTS)
 	checkmk $(TESTS) >$(DIR_TESTS)/$(NAME_TESTS).c
