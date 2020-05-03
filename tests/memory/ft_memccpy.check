@@ -1,0 +1,47 @@
+#suite Test_ft_memccpy
+
+#include <string.h>
+#include "libft.h"
+
+void	test_memccpy(const char *in, char c, int n)
+{
+	char		buf_expected[100];
+	char		buf_actual[100];
+	char		*res_expected;
+	char		*res_actual;
+
+	memset(buf_actual, '!', 99); buf_actual[99] = 0;
+	memset(buf_expected, '!', 99); buf_expected[99] = 0;
+
+	res_expected = memccpy(buf_expected, in, c, n);
+	res_actual = ft_memccpy(buf_actual, in, c, n);
+
+	if(res_expected == NULL)
+		ck_assert_ptr_null(res_actual);
+	else
+		ck_assert_str_eq(res_expected, res_actual);
+	ck_assert_str_eq(buf_expected, buf_actual);
+}
+
+#test ft_memccpy_test
+	const char	*in = "HelloWorld.AlexCool.@~AfreezeSuper.";
+
+	test_memccpy(in, '@', 5);
+	test_memccpy(in, '@', 19);
+	test_memccpy(in, '@', 20);
+	test_memccpy(in, '@', 21);
+	test_memccpy(in, '@', 22);
+	test_memccpy(in, '@', 23);
+	test_memccpy(in, '@', 24);
+	test_memccpy(in, '@', 25);
+
+	test_memccpy(in, '~', 5);
+	test_memccpy(in, '~', 19);
+	test_memccpy(in, '~', 20);
+	test_memccpy(in, '~', 21);
+	test_memccpy(in, '~', 22);
+	test_memccpy(in, '~', 23);
+	test_memccpy(in, '~', 24);
+	test_memccpy(in, '~', 25);
+
+	test_memccpy(in, '~', 25);

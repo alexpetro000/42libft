@@ -1,0 +1,33 @@
+#suite Test_ft_memmove
+
+#include <string.h>
+#include "libft.h"
+
+#test ft_memmove_test
+	char		buf_expect[100];
+	char		buf_actual[100];
+
+	strcpy(buf_expect, "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean.");
+	strcpy(buf_actual, "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean.");
+	buf_expect[99] = 0;
+	buf_actual[99] = 0;
+
+	ft_memmove(NULL, NULL, 5);
+	ft_memmove(buf_actual, buf_actual + 10, 10);
+	ft_memmove(buf_actual + 50, buf_actual, 20);
+	ft_memmove(buf_actual + 50, buf_actual + 3, 5);
+	ft_memmove(buf_actual + 50, buf_actual, 0);
+	ft_memmove(buf_actual, buf_actual, 30);
+	ft_memmove(buf_actual, buf_actual + 50, 3);
+	ft_memmove(buf_actual + 33, buf_actual + 40, 5);
+
+	memmove(NULL, NULL, 5);
+	memmove(buf_expect, buf_expect + 10, 10);
+	memmove(buf_expect + 50, buf_expect, 20);
+	memmove(buf_expect + 50, buf_expect + 3, 5);
+	memmove(buf_expect + 50, buf_expect, 0);
+	memmove(buf_expect, buf_expect, 30);
+	memmove(buf_expect, buf_expect + 50, 3);
+	memmove(buf_expect + 33, buf_expect + 40, 5);
+
+	ck_assert_str_eq(buf_expect, buf_actual);

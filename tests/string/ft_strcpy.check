@@ -1,0 +1,27 @@
+#suite Test_ft_strcpy
+
+#include <string.h>
+#include "libft.h"
+
+void	test_strcpy(char *s)
+{
+	char buf_expect[100];
+	char buf_actual[100];
+	ck_assert_str_eq(strcpy(buf_expect, s), ft_strcpy(buf_actual, s));
+	ck_assert_str_eq(buf_expect, buf_actual);
+}
+
+#test ft_strcpy_test
+	test_strcpy("");
+	test_strcpy("qwertt");
+	test_strcpy("afkfdba;");
+	test_strcpy("sfafadasdadad");
+	test_strcpy("lkjhgfdsa");
+	test_strcpy("ooooooooooo");
+	test_strcpy("cccccc");
+	test_strcpy("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
+	test_strcpy("cccc");
+	test_strcpy("a");
+	test_strcpy("b");
+	test_strcpy("lala");
+	test_strcpy("AlexAfreeze");

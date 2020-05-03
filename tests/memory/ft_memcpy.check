@@ -1,0 +1,24 @@
+#suite Test_ft_memcpy
+
+#include <string.h>
+#include "libft.h"
+
+#test ft_memcpy_test
+	char		buf_expected[1000];
+	char		buf_actual[1000];
+	const char	*in = "HelloWorld!AlexCool!AfreezeSuper!";
+
+	memset(buf_actual, 64, 1000);
+	memset(buf_expected, 64, 1000);
+
+	ck_assert_mem_eq(ft_memcpy(buf_actual, in, 5), memcpy(buf_expected, in, 5), 1000);
+	ck_assert_mem_eq(buf_expected, buf_actual, 1000);
+
+	ck_assert_mem_eq(ft_memcpy(buf_actual, in, 10), memcpy(buf_expected, in, 10), 1000);
+	ck_assert_mem_eq(buf_expected, buf_actual, 1000);
+
+	ck_assert_mem_eq(ft_memcpy(buf_actual, in, 13), memcpy(buf_expected, in, 13), 1000);
+	ck_assert_mem_eq(buf_expected, buf_actual, 1000);
+
+	ck_assert_mem_eq(ft_memcpy(buf_actual, in, 100), memcpy(buf_expected, in, 100), 1000);
+	ck_assert_mem_eq(buf_expected, buf_actual, 1000);

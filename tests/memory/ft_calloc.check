@@ -1,0 +1,34 @@
+#suite Test_ft_calloc
+
+#include <string.h>
+#include <stdlib.h>
+#include "libft.h"
+
+#test ft_calloc_test
+	long	*arr_long;
+	int		*arr_int;
+	void	*mem;
+
+	arr_int = ft_calloc(100, sizeof(int));
+	for(int i = 0; i < 100; i++)
+	{
+		ck_assert_int_eq(arr_int[i], 0);
+		arr_int[i] = 500 - i;
+		ck_assert_int_eq(arr_int[i], 500 - i);
+	}
+	free(arr_int);
+
+
+	arr_long = ft_calloc(100, sizeof(long));
+	for(int i = 0; i < 100; i++)
+	{
+		ck_assert_int_eq(arr_long[i], 0);
+		arr_long[i] = i + 1000000;
+		ck_assert_int_eq(arr_long[i], i + 1000000);
+	}
+	free(arr_long);
+
+	mem = ft_calloc(-1, 1);
+	ck_assert_ptr_null(mem);
+	if (mem)
+		free(mem);

@@ -1,0 +1,24 @@
+#suite Test_ft_strlen
+
+#include <string.h>
+#include "libft.h"
+
+void	test_strlen(char *s)
+{
+	ck_assert_uint_eq(strlen(s), ft_strlen(s));
+}
+
+#test ft_strlen_test
+	test_strlen("");
+	test_strlen("qwertt");
+	test_strlen("afkfdba;");
+	test_strlen("sfafadasdadad");
+	test_strlen("lkjhgfdsa");
+	test_strlen("ooooooooooo");
+	test_strlen("cccccc");
+	test_strlen("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
+	test_strlen("cccc");
+	test_strlen("a");
+	test_strlen("b");
+	test_strlen("lala");
+	test_strlen("AlexAfreeze");

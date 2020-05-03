@@ -1,0 +1,36 @@
+#suite Test_ft_strlcat
+
+#include <string.h>
+#include "libft.h"
+#include <bsd/string.h>
+
+void	test_strlcat(char *in, char *s, int n)
+{
+	char	buf_expect[100];
+	char	buf_actual[100];
+
+	memset(buf_expect, '!', 100);
+	memset(buf_actual, '!', 100);
+	strcpy(buf_expect, in);
+	strcpy(buf_actual, in);
+	buf_expect[99] = '\0';
+	buf_actual[99] = '\0';
+
+	ck_assert_int_eq(strlcat(buf_expect, s, n), ft_strlcat(buf_actual, s, n));
+	ck_assert_str_eq(buf_expect, buf_actual);
+}
+
+#test ft_strlcat_test
+	test_strlcat("", "", 80);
+	test_strlcat("Hello", "qwertt", 80);
+	test_strlcat("", "afkfdba;", 80);
+	test_strlcat("Lol", "", 80);
+	test_strlcat("qwertyuiop", "asdfghjkl", 100);
+	for(int i = 0; i < 30; i++) {
+		test_strlcat("qwertyuiop", "asdfgh", i);
+		test_strlcat("qwertyuiop", "asdfghasdasdada", i);
+	}
+
+	test_strlcat("ref", "ooooooooooo", 100);
+	test_strlcat("sfsfsf", "cccccc", 50);
+	test_strlcat("fffff", "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", 5);

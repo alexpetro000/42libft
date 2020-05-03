@@ -1,0 +1,39 @@
+#suite Test_ft_strncpy
+
+#include <string.h>
+#include "libft.h"
+
+void	test_strncpy(char *s, int n)
+{
+	char	buf_expect[100];
+	char	buf_actual[100];
+
+	memset(buf_expect, '!', 100);
+	memset(buf_actual, '!', 100);
+	buf_expect[99] = '\0';
+	buf_actual[99] = '\0';
+
+	ck_assert_str_eq(strncpy(buf_expect, s, n), ft_strncpy(buf_actual, s, n));
+	ck_assert_str_eq(buf_expect, buf_actual);
+}
+
+#test ft_strncpy_test
+	test_strncpy("", 10);
+	test_strncpy("qwertt", 10);
+	test_strncpy("afkfdba;", 10);
+	test_strncpy("sfafadasdadad", 100);
+	test_strncpy("lkjhgfdsa", 100);
+	test_strncpy("ooooooooooo", 100);
+	test_strncpy("cccccc", 50);
+	test_strncpy("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", 15);
+	test_strncpy("cccc", 16);
+	test_strncpy("cccc", 0);
+	test_strncpy("a", 0);
+	test_strncpy("", 0);
+	test_strncpy("b", 1);
+	test_strncpy("lala", 1);
+	test_strncpy("lala", 3);
+	test_strncpy("lala", 4);
+	test_strncpy("lala", 5);
+	test_strncpy("lala", 6);
+	test_strncpy("AlexAfreeze", 100);

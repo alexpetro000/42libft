@@ -1,0 +1,30 @@
+#suite Test_ft_memcmp
+
+#include <string.h>
+#include "libft.h"
+
+#test ft_memcmp_test
+	char s1[100], s2[100];
+	memcpy(s1, "Lorem ipsum $dolor sit amet, co~nsectetuer adipiscing el@it. Aenean co#mmodo ligula e!get dolor. Aeeee!", 100);
+
+	memcpy(s2, "Lorem ipsum $dolor sit amet, co~nsectetuer adipiscing el@it. Aenean co#mmodo ligula e!get dolor. Aeeee!", 100);
+	ck_assert_int_eq(memcmp(s1, s2, 100),	ft_memcmp(s1, s2, 100));
+	memcpy(s2, "Lorem ipsum $dolor sit Amet, Co~nsectetuer adipiscing el@it. Aenean co#mmodo ligula e!get dolor. Aeeee!", 100);
+	ck_assert_int_eq(memcmp(s1, s2, 100),	ft_memcmp(s1, s2, 100));
+	memcpy(s2, "Lorem ipsum $dolor sit MAet, co~nsectetuer adipiscing el@it. Aenean co#mmodo ligula e!get dolor. Aeeee!", 100);
+	ck_assert_int_eq(memcmp(s1, s2, 100),	ft_memcmp(s1, s2, 100));
+	memcpy(s2, "Lorem ipsum $dolor sit ameg, co~nsectetuer adipiscing el@it. Aenean co#mmodo ligula e!get dolor. Aeeee!", 100);
+	ck_assert_int_eq(memcmp(s1, s2, 100),	ft_memcmp(s1, s2, 100));
+	memcpy(s2, "Lorem ipsum $dolor sit ameb, co~nsectetuer adipiscing el@it. Aenean co#mmodo ligula e!get dolor. Aeeee!", 100);
+	ck_assert_int_eq(memcmp(s1, s2, 100),	ft_memcmp(s1, s2, 100));
+	memcpy(s2, "Lorem ipsum $dolor sit amet, co~nsectetuer adipiscing el@it. Aelal co#mmodo ligula e!get dolor. Aeeee!", 100);
+	ck_assert_int_eq(memcmp(s1, s2, 100),	ft_memcmp(s1, s2, 100));
+	ck_assert_int_eq(memcmp(s1, s2, 50),	ft_memcmp(s1, s2, 50));
+	ck_assert_int_eq(memcmp(s1, s2, 65),	ft_memcmp(s1, s2, 65));
+	ck_assert_int_eq(memcmp(s1, s2, 66),	ft_memcmp(s1, s2, 66));
+	ck_assert_int_eq(memcmp(s1, s2, 67),	ft_memcmp(s1, s2, 67));
+	ck_assert_int_eq(memcmp(s1, s2, 68),	ft_memcmp(s1, s2, 68));
+	memcpy(s2, "Lorem ipsum $dolor sit amet\0 co~nsectetuer adipiscing el@it. eenean co#mmodo ligula e!get dolor. Aeeee!", 100);
+	ck_assert_int_eq(memcmp(s1, s2, 100),	ft_memcmp(s1, s2, 100));
+	memcpy(s2, "Lorem ipsum $dolor sit amet\0, co~nsectetuer adipiscing el@it. eenean co#mmodo ligula e!get dolor. Aeeee!", 100);
+	ck_assert_int_eq(memcmp(s1, s2, 100),	ft_memcmp(s1, s2, 100));
