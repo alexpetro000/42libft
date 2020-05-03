@@ -16,10 +16,7 @@ void	test_memccpy(const char *in, char c, int n)
 	res_expected = memccpy(buf_expected, in, c, n);
 	res_actual = ft_memccpy(buf_actual, in, c, n);
 
-	if(res_expected == NULL)
-		ck_assert_ptr_null(res_actual);
-	else
-		ck_assert_str_eq(res_expected, res_actual);
+	ck_assert_pstr_eq(res_expected, res_actual);
 	ck_assert_str_eq(buf_expected, buf_actual);
 }
 

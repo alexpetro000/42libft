@@ -1,0 +1,25 @@
+#suite Test_ft_substr
+
+#include <string.h>
+#include "libft.h"
+
+void	test_substr(char *s, int start, int len, char *ss)
+{
+	char *res = ft_substr(s, start, len);
+	ck_assert_str_eq(res, ss);
+	if(res) free(res);
+}
+
+#test ft_substr_test
+	test_substr("qwertyuiop", 5, 3, "yui");
+	test_substr("qwertyuiop", 5, 10, "yuiop");
+	test_substr("qwertyuiop", 20, 10, "");
+	test_substr("asdfghjkld", 1, 3, "sdf");
+	test_substr("asdfghjkld", 1, 7, "sdfghjk");
+	test_substr("asdfghjkld", 1, 8, "sdfghjkl");
+	test_substr("asdfghjkld", 1, 9, "sdfghjkld");
+	test_substr("asdfghjkld", 1, 10, "sdfghjkld");
+	test_substr("asdfghjkld", 1, 20, "sdfghjkld");
+	test_substr("qazaaaedcr", 9, 3, "r");
+	test_substr("qazaaaedcr", 10, 3, "");
+	test_substr("qazaaaedcr", 11, 3, "");

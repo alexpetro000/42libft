@@ -1,0 +1,19 @@
+#suite Test_ft_strjoin
+
+#include <string.h>
+#include "libft.h"
+
+void	test_strjoin(char *s1, char *s2, char *s3)
+{
+	char *res_actual = ft_strjoin(s1, s2);
+	ck_assert_str_eq(s3, res_actual);
+	if(res_actual) free(res_actual);
+}
+
+#test ft_strjoin_test
+	test_strjoin("123", "hello", "123hello");
+	test_strjoin("", "", "");
+	test_strjoin("123", "", "123");
+	test_strjoin("", "hello", "hello");
+	test_strjoin("fdaddad", "hello", "fdaddadhello");
+	test_strjoin("Alex", "Cool!", "AlexCool!");

@@ -1,0 +1,29 @@
+#suite Test_ft_strncmp
+
+#include <string.h>
+#include "libft.h"
+
+void	test_strncmp(char *s1, char *s2, int n)
+{
+	ck_assert_int_eq(strncmp(s1, s2, n), ft_strncmp(s1, s2, n));
+}
+
+#test ft_strncmp_test
+	test_strncmp("", "", 0);
+	test_strncmp("", "", 10);
+	test_strncmp("hello", "hello", 5);
+	test_strncmp("asdfg", "asdFg", 5);
+	test_strncmp("qwertyuiop", "qwertyuiop", 5);
+	test_strncmp("qwertyuiop", "qwertYuiop", 5);
+	test_strncmp("qwertyuiop", "qwertYuiop", 6);
+	test_strncmp("qwertyuiop", "qwertYuiop", 7);
+	test_strncmp("LLLL", "llll", 4);
+	test_strncmp("asdfg", "asdFg", 10);
+	test_strncmp("Asdfg", "asdFg", 5);
+	test_strncmp("asdfg", "bsdFg", 5);
+	test_strncmp("azdfg", "asdFg", 5);
+	test_strncmp("qwertyuiop", "qwfrtyuiop", 2);
+	test_strncmp("qwertyuiop", "qwfrtyuiop", 3);
+	test_strncmp("qwertyuiop", "qwfrtyuiop", 4);
+	test_strncmp("qwertyuiop", "qwfrtyuiop", 5);
+	test_strncmp("qwertyuiop", "qwfrtyuiop", 6);

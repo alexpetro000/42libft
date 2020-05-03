@@ -12,16 +12,16 @@
 	buf_expect[99] = 0;
 	buf_actual[99] = 0;
 
-	ft_memmove(NULL, NULL, 5);
-	ft_memmove(buf_actual, buf_actual + 10, 10);
-	ft_memmove(buf_actual + 50, buf_actual, 20);
-	ft_memmove(buf_actual + 50, buf_actual + 3, 5);
-	ft_memmove(buf_actual + 50, buf_actual, 0);
-	ft_memmove(buf_actual, buf_actual, 30);
-	ft_memmove(buf_actual, buf_actual + 50, 3);
-	ft_memmove(buf_actual + 33, buf_actual + 40, 5);
+	ck_assert_ptr_null(ft_memmove(NULL, NULL, 5));
+	ck_assert_ptr_eq(ft_memmove(buf_actual, buf_actual + 10, 10), buf_actual);
+	ck_assert_ptr_eq(ft_memmove(buf_actual + 50, buf_actual, 20), buf_actual + 50);
+	ck_assert_ptr_eq(ft_memmove(buf_actual + 50, buf_actual + 3, 5), buf_actual + 50);
+	ck_assert_ptr_eq(ft_memmove(buf_actual + 50, buf_actual, 0), buf_actual + 50);
+	ck_assert_ptr_eq(ft_memmove(buf_actual, buf_actual, 30), buf_actual);
+	ck_assert_ptr_eq(ft_memmove(buf_actual, buf_actual + 50, 3), buf_actual);
+	ck_assert_ptr_eq(ft_memmove(buf_actual + 33, buf_actual + 40, 5), buf_actual + 33);
 
-	memmove(NULL, NULL, 5);
+	//memmove(NULL, NULL, 5);
 	memmove(buf_expect, buf_expect + 10, 10);
 	memmove(buf_expect + 50, buf_expect, 20);
 	memmove(buf_expect + 50, buf_expect + 3, 5);

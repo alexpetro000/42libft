@@ -1,0 +1,23 @@
+#suite Test_is_someCharType
+
+#include <string.h>
+#include "libft.h"
+
+#test ft_is_someCharType_test
+	for(int i = 0; i <= 255; i++) {
+		ck_assert_int_eq(ft_isalnum(i) > 0, isalnum(i) > 0);
+		ck_assert_int_eq(ft_isalpha(i) > 0, isalpha(i) > 0);
+		ck_assert_int_eq(ft_isascii(i) > 0, isascii(i) > 0);
+		ck_assert_int_eq(ft_isblank(i) > 0, isblank(i) > 0);
+		ck_assert_int_eq(ft_iscntrl(i) > 0, iscntrl(i) > 0);
+		ck_assert_int_eq(ft_isdigit(i) > 0, isdigit(i) > 0);
+		ck_assert_int_eq(ft_isgraph(i) > 0, isgraph(i) > 0);
+		ck_assert_int_eq(ft_islower(i) > 0, islower(i) > 0);
+		ck_assert_int_eq(ft_isprint(i) > 0, isprint(i) > 0);
+		ck_assert_int_eq(ft_ispunct(i) > 0, ispunct(i) > 0);
+		ck_assert_int_eq(ft_isspace(i) > 0, isspace(i) > 0);
+		ck_assert_int_eq(ft_isupper(i) > 0, isupper(i) > 0);
+		ck_assert_int_eq(ft_isxdigit(i) > 0, isxdigit(i) > 0);
+		ck_assert_int_eq(ft_tolower(i), tolower(i));
+		ck_assert_int_eq(ft_toupper(i), toupper(i));
+	}
