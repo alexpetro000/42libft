@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 20:12:49 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 03:11:47 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/04 02:08:14 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t len;
+	const char *ss;
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	ss = s;
+	while (*ss)
+		ss++;
+	return (ss - s);
 }
