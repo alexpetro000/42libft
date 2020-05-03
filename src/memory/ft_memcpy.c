@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 22:41:38 by afreeze           #+#    #+#             */
-/*   Updated: 2020/04/30 20:00:04 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/02 14:13:32 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	while (n--)
-		((unsigned char*)dest)[n] = ((unsigned char*)src)[n];
-	return (dest);
+	return (ft_memmove(dest, src, n));
 }

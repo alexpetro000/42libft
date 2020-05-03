@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 01:59:30 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 02:36:59 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/03 20:00:00 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,10 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	return (ft_memset(malloc(nmemb * size), 0, nmemb * size));
+	void	*mem;
+
+	size *= nmemb;
+	if (!(mem = malloc(size)))
+		return (NULL);
+	return (ft_memset(mem, 0, size));
 }
