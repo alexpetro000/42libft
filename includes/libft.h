@@ -6,7 +6,7 @@
 /*   By: alexp <alexp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:37:48 by alexp             #+#    #+#             */
-/*   Updated: 2020/05/04 02:59:34 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/04 03:32:25 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int		ft_toupper(int c);
 ** Type convert functions
 */
 int		ft_atoi(const char *s);
+char	*ft_itoa(int n);
 
 /*
 ** Math
