@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 03:32:13 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/04 03:58:08 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/04 04:16:14 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static inline int	calc_len(int n)
 {
 	int	len;
 
-	len = n < 0 ? 1 : 0;
+	len = (n <= 0) ? 1 : 0;
 	while (n)
 	{
 		len++;
@@ -26,7 +26,7 @@ static inline int	calc_len(int n)
 	return (len);
 }
 
-char		*ft_itoa(int n)
+char				*ft_itoa(int n)
 {
 	char	*s;
 	int		len;
@@ -35,11 +35,17 @@ char		*ft_itoa(int n)
 	nn = n;
 	len = calc_len(n);
 	s = malloc(len + 1);
+	if (!s)
+		return (NULL);
 	s[len] = '\0';
 	if (nn < 0)
 	{
 		s[0] = '-';
 		nn = -nn;
+	}
+	else if (nn == 0)
+	{
+		s[0] = '0';
 	}
 	while (nn > 0)
 	{
