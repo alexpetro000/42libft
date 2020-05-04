@@ -1,0 +1,25 @@
+#suite Test_ft_strtrim
+
+#include "libft.h"
+
+#test ft_strtrim_test
+	char *s;
+	s = ft_strtrim("cabcacbacbabcbbabaaAlexCoolProger!bacbacacab", "abc");
+	ck_assert_str_eq("AlexCoolProger!", s);
+	free(s);
+
+	s = ft_strtrim("abcbcabcacbabcbacb", "abc");
+	ck_assert_str_eq("", s);
+	free(s);
+
+	s = ft_strtrim("", "abc");
+	ck_assert_str_eq("", s);
+	free(s);
+
+	s = ft_strtrim("AlexCoolProger!", "");
+	ck_assert_str_eq("AlexCoolProger!", s);
+	free(s);
+
+	s = ft_strtrim("", "");
+	ck_assert_str_eq("", s);
+	free(s);
