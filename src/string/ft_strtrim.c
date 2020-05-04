@@ -1,20 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 00:54:05 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/04 03:00:03 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/04 02:50:40 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/04 03:25:01 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdlib.h"
 
-int		ft_tolower(int c)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	if (ft_isupper(c))
-		c += 'a' - 'A';
-	return (c);
+	char	*start;
+	char	*mem;
+
+	if (!s1)
+		return (NULL);
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	if (!*s1)
+		return (ft_strdup(""));
+	start = (char*)s1;
+	while (*s1)
+		s1++;
+	while (ft_strchr(set, *(--s1)))
+		;
+	mem = malloc(s1 - start + 2);
+	if (!mem)
+		return (NULL);
+	ft_memcpy(mem, start, s1 - start + 1);
+	mem[s1 - start + 1] = 0;
+	return (mem);
 }
