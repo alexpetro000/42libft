@@ -27,3 +27,4 @@ void	test_strncmp(char *s1, char *s2, int n)
 	test_strncmp("qwertyuiop", "qwfrtyuiop", 4);
 	test_strncmp("qwertyuiop", "qwfrtyuiop", 5);
 	test_strncmp("qwertyuiop", "qwfrtyuiop", 6);
+	test_strncmp("abcdefgh", "", 0);
