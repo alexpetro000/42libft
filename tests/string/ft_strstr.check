@@ -2,6 +2,7 @@
 
 #include "libft.h"
 #include <string.h>
+#include <stdlib.h>
 
 void test_strstr(char *big, char *little)
 {

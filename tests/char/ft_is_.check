@@ -1,6 +1,7 @@
 #suite Test_is_someCharType
 
 #include <string.h>
+#include <ctype.h>
 #include "libft.h"
 
 #test ft_is_someCharType_test
