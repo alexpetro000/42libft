@@ -6,7 +6,7 @@
 #    By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/01 17:30:20 by afreeze           #+#    #+#              #
-#    Updated: 2020/05/03 20:04:01 by afreeze          ###   ########.fr        #
+#    Updated: 2020/05/04 21:20:59 by afreeze          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,8 @@ OBJS_SO			= $(addprefix $(DIR_OBJ_SO)/,$(SRCS:%.c=%.o))
 TESTS_C			= $(DIR_TESTS)/$(NAME_TESTS).c
 
 CC 				= gcc
-CFLAGS 			= -Wall -Wextra -Werror -O3
-CFLAGS_SO		= -Wall -Wextra -Werror -O3 -fpic
+CFLAGS 			= -Wall -Wextra -Werror -Ofast
+CFLAGS_SO		= -Wall -Wextra -Werror -Ofast -fpic
 CFLAGS_TESTS	= -Wall -lcheck -lcheck -pthread -pthread -lrt -lm -lbsd
 
 .PHONY: all clean fclean re test so
