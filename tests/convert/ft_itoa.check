@@ -29,3 +29,7 @@
 	s = ft_itoa(-12311);
 	ck_assert_str_eq(s, "-12311");
 	free(s);
+
+	s = ft_itoa(0);
+	ck_assert_str_eq(s, "0");
+	free(s);
