@@ -6,13 +6,12 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 15:29:45 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/04 19:26:17 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/04 23:16:45 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-#include "stdio.h"
 
 static inline int	count_words(const char *s, char c)
 {
