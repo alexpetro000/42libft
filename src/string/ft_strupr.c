@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_strupr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/05 15:08:46 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/05 21:31:23 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/05 21:45:04 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/05 22:16:06 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+char	*ft_strupr(char *in)
 {
-	t_list	*cur;
-	t_list	*tmp;
+	char		*res;
+	char		*s_res;
 
-	cur = *lst;
-	while (cur)
-	{
-		del(cur->content);
-		tmp = cur;
-		cur = cur->next;
-		free(tmp);
-	}
-	*lst = NULL;
+	res = malloc(ft_strlen(in) + 1);
+	s_res = res;
+	while (*in)
+		*(res++) = ft_toupper(*(in++));
+	*res = '\0';
+	return (s_res);
 }
