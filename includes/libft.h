@@ -6,7 +6,7 @@
 /*   By: alexp <alexp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:37:48 by alexp             #+#    #+#             */
-/*   Updated: 2020/05/05 16:42:09 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/05 22:06:33 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void			ft_putnbr(int n);
 void			ft_putnbr_fd(int n, int fd);
 
 int				ft_strcntchr(const char *s, char c);
+char			*ft_strupr(char *lower);
+char			*ft_strlwr(char *lower);
 
 /*
 ** Char functions
@@ -95,7 +97,6 @@ int				ft_max(int a, int b);
 /*
 ** List
 */
-
 typedef struct	s_list
 {
 	void			*content;
