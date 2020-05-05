@@ -1,0 +1,16 @@
+#suite Test_ft_strlwr
+
+#include <stdlib.h>
+#include "string.h"
+#include "libft.h"
+
+#test ft_strlwr_test
+	char	*s;
+
+	s = ft_strlwr("%^&~~HeLloWoRlD!~~&^%");
+	ck_assert_str_eq(s, "%^&~~helloworld!~~&^%");
+	free(s);
+
+	s = ft_strlwr("AfREEZe12345");
+	ck_assert_str_eq(s, "afreeze12345");
+	free(s);

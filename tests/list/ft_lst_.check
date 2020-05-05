@@ -1,0 +1,92 @@
+#suite Test_ft_lst_ALL
+
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include "libft.h"
+
+void 	*iter_func_buf[10];
+int		iter_func_pos = 0;
+
+
+void	lst_iter_func(void* content)
+{
+	iter_func_buf[iter_func_pos++] = content;
+}
+
+void	*lst_map_func(void* content)
+{
+	return ft_strupr(content);
+}
+
+#test ft_lst_new
+	t_list	*list;
+	t_list	*mapped_list;
+
+	list = ft_lstnew(NULL);
+	ck_assert_ptr_null(list->content);
+	ck_assert_ptr_null(list->next);
+	ft_lstclear(&list, free);
+	ck_assert_ptr_null(list);
+
+	list = ft_lstnew(strdup("Alex"));
+	ck_assert_str_eq(list->content, "Alex");
+	ck_assert_ptr_null(list->next);
+	ft_lstclear(&list, &free);
+	ck_assert_ptr_null(list);
+
+	ck_assert_int_eq(ft_lstsize(list), 0);
+
+	ft_lstadd_back(&list, ft_lstnew(strdup("qwerty")));
+	ck_assert_str_eq(list->content, "qwerty");
+	ck_assert_ptr_null(list->next);
+	ck_assert_int_eq(ft_lstsize(list), 1);
+
+	ft_lstadd_back(&list, ft_lstnew(strdup("asdfg")));
+	ck_assert_str_eq(list->content, "qwerty");
+	ck_assert_str_eq(list->next->content, "asdfg");
+	ck_assert_ptr_null(list->next->next);
+	ck_assert_int_eq(ft_lstsize(list), 2);
+
+	ft_lstadd_back(&list, ft_lstnew(strdup("zxcvb")));
+	ck_assert_str_eq(list->content, "qwerty");
+	ck_assert_str_eq(list->next->content, "asdfg");
+	ck_assert_str_eq(list->next->next->content, "zxcvb");
+	ck_assert_ptr_null(list->next->next->next);
+	ck_assert_int_eq(ft_lstsize(list), 3);
+
+	ft_lstadd_front(&list, ft_lstnew(strdup("qazwsxedc")));
+	ck_assert_str_eq(list->content, "qazwsxedc");
+	ck_assert_str_eq(list->next->content, "qwerty");
+	ck_assert_str_eq(list->next->next->content, "asdfg");
+	ck_assert_str_eq(list->next->next->next->content, "zxcvb");
+	ck_assert_ptr_null(list->next->next->next->next);
+	ck_assert_int_eq(ft_lstsize(list), 4);
+
+	iter_func_buf[4] = NULL;
+	ft_lstiter(list, &lst_iter_func);
+	ck_assert_str_eq(iter_func_buf[0], "qazwsxedc");
+	ck_assert_str_eq(iter_func_buf[1], "qwerty");
+	ck_assert_str_eq(iter_func_buf[2], "asdfg");
+	ck_assert_str_eq(iter_func_buf[3], "zxcvb");
+	ck_assert_ptr_null(iter_func_buf[4]);
+
+	mapped_list = ft_lstmap(list, lst_map_func, free);
+	iter_func_buf[4] = NULL;
+	iter_func_pos = 0;
+	ft_lstiter(mapped_list, &lst_iter_func);
+	ck_assert_int_eq(ft_lstsize(mapped_list), 4);
+	ck_assert_str_eq(iter_func_buf[0], "QAZWSXEDC");
+	ck_assert_str_eq(iter_func_buf[1], "QWERTY");
+	ck_assert_str_eq(iter_func_buf[2], "ASDFG");
+	ck_assert_str_eq(iter_func_buf[3], "ZXCVB");
+	ck_assert_ptr_null(iter_func_buf[4]);
+
+	ck_assert_ptr_eq(ft_lstlast(list), list->next->next->next);
+	ck_assert_ptr_eq(ft_lstlast(mapped_list), mapped_list->next->next->next);
+
+	ft_lstclear(&mapped_list, free);
+	ck_assert_ptr_null(mapped_list);
+
+	ft_lstclear(&list, free);
+	ck_assert_ptr_null(list);

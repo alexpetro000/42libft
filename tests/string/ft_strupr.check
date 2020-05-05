@@ -1,0 +1,16 @@
+#suite Test_ft_strupr
+
+#include <stdlib.h>
+#include "string.h"
+#include "libft.h"
+
+#test ft_strupr_test
+	char	*s;
+
+	s = ft_strupr("%^&~~HeLloWoRlD!~~&^%");
+	ck_assert_str_eq(s, "%^&~~HELLOWORLD!~~&^%");
+	free(s);
+
+	s = ft_strupr("afreeze12345");
+	ck_assert_str_eq(s, "AFREEZE12345");
+	free(s);
