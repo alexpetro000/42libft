@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/04 21:37:33 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/04 21:38:02 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/04 21:36:08 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/06 17:50:51 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_putendl(char *s)
 {
-	ft_putnbr_fd(n, 1);
+	ft_putendl_fd(s, 1);
 }

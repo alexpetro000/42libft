@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlwr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/04 20:49:04 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/04 21:41:16 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/05 22:06:44 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/06 17:31:49 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 #include "libft.h"
 
-void	ft_putstr(char *s)
+char			*ft_strlwr(char *in)
 {
-	ft_putstr_fd(s, 1);
+	char		*res;
+	char		*s_res;
+
+	res = malloc(ft_strlen(in) + 1);
+	s_res = res;
+	while (*in)
+		*(res++) = ft_tolower(*(in++));
+	*res = '\0';
+	return (s_res);
 }

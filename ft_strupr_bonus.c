@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_strupr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/04 21:36:08 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/04 21:36:41 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/05 21:45:04 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/06 17:31:36 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 #include "libft.h"
 
-void	ft_putendl(char *s)
+char	*ft_strupr(char *in)
 {
-	ft_putendl_fd(s, 1);
+	char		*res;
+	char		*s_res;
+
+	res = malloc(ft_strlen(in) + 1);
+	s_res = res;
+	while (*in)
+		*(res++) = ft_toupper(*(in++));
+	*res = '\0';
+	return (s_res);
 }
