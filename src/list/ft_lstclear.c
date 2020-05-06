@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 15:08:46 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/05 21:31:23 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/06 15:53:25 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	t_list	*cur;
 	t_list	*tmp;
 
+	if (!lst)
+		return ;
 	cur = *lst;
 	while (cur)
 	{
