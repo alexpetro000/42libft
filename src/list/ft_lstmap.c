@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 15:17:43 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/06 15:54:22 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/07 17:16:53 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,15 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	if (!lst || !(res = ft_lstnew(f(lst->content))))
 		return (NULL);
 	res_cp = res;
-	while (lst->next)
+	lst = lst->next;
+	while (lst)
 	{
-		lst = lst->next;
 		if (!(res->next = ft_lstnew(f(lst->content))))
 		{
-			ft_lstclear(&res, del);
+			ft_lstclear(&res_cp, del);
 			return (NULL);
 		}
+		lst = lst->next;
 		res = res->next;
 	}
 	return (res_cp);

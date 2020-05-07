@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 15:29:45 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/07 13:44:07 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/07 15:25:29 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ static char		copy_words(char **arr, const char *s, char c)
 			if (!arr[word_i++])
 			{
 				while (--word_i)
-					free(arr);
+					free(arr[word_i]);
+				free(arr);
 				return (0);
 			}
 			world_start = 0;
