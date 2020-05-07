@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 21:06:35 by afreeze           #+#    #+#             */
-/*   Updated: 2020/04/30 23:02:35 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/07 15:28:37 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		size--;
 		while (len < size && *src)
 			dst[len++] = *(src++);
-		dst[len] = 0;
+		dst[len] = '\0';
 	}
 	while (*(src++))
 		len++;
