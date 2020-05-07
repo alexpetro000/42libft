@@ -6,7 +6,7 @@
 #    By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/01 17:30:20 by afreeze           #+#    #+#              #
-#    Updated: 2020/05/06 03:02:01 by afreeze          ###   ########.fr        #
+#    Updated: 2020/05/07 15:41:12 by afreeze          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ CFLAGS_TESTS	= -Wall -lcheck -lcheck -pthread -pthread -lrt -lm -lbsd
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
+	ar -rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
 $(DIR_OBJ)/%.o : $(DIR_SRC)/%.c

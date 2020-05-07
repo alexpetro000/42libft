@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 16:42:24 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/05 16:43:29 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/07 17:17:18 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int				ft_lstsize(t_list *lst)
 {
-	unsigned int	len;
+	int		len;
 
 	len = 0;
 	while (lst)
