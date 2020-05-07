@@ -1,18 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_min.c                                           :+:      :+:    :+:   */
+/*   ft_strstr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 03:21:42 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 03:23:20 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/04 02:52:45 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/07 13:47:09 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_min(int a, int b)
+char	*ft_strstr(const char *big, const char *little)
 {
-	return (a < b ? a : b);
+	const char	*ss;
+
+	if (*little == '\0')
+		return ((char*)big);
+	ss = NULL;
+	while (*big)
+	{
+		if (*big == *little)
+		{
+			if (!ss)
+				ss = big;
+			if (*++little == '\0')
+				return ((char*)ss);
+		}
+		else if (ss)
+		{
+			little -= big - ss;
+			big = ss;
+			ss = NULL;
+		}
+		big++;
+	}
+	return (NULL);
 }

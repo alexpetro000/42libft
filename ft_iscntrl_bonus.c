@@ -1,40 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_iscntrl_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/04 02:52:45 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/04 02:59:29 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/01 01:00:19 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/07 02:02:58 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *big, const char *little)
+int		ft_iscntrl(int c)
 {
-	const char	*ss;
-
-	if (*little == '\0')
-		return ((char*)big);
-	ss = NULL;
-	while (*big)
-	{
-		if (*big == *little)
-		{
-			if (!ss)
-				ss = big;
-			if (*++little == '\0')
-				return ((char*)ss);
-		}
-		else if (ss)
-		{
-			little -= big - ss;
-			big = ss;
-			ss = NULL;
-		}
-		big++;
-	}
-	return (NULL);
+	return ((0 <= c && c <= 0x1F) || c == 127);
 }

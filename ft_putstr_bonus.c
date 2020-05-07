@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isupper.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 00:53:55 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 01:27:36 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/04 20:49:04 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/07 02:17:44 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
 
-int		ft_isupper(int c)
+void	ft_putstr(char *s)
 {
-	return ('A' <= c && c <= 'Z');
+	ft_putstr_fd(s, 1);
 }

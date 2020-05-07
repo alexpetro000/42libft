@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_max.c                                           :+:      :+:    :+:   */
+/*   ft_putendl_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 03:23:04 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 03:23:21 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/04 21:36:08 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/07 02:17:43 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
 
-int		ft_max(int a, int b)
+void	ft_putendl(char *s)
 {
-	return (a > b ? a : b);
+	ft_putendl_fd(s, 1);
 }
