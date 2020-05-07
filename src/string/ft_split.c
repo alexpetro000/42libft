@@ -6,23 +6,22 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 15:29:45 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/04 23:16:45 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/07 13:44:07 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static inline int	count_words(const char *s, char c)
+static size_t	count_words(const char *s, char c)
 {
-	int		cnt;
-	char	is_start;
+	size_t		cnt;
+	char		is_start;
 
 	is_start = 1;
 	cnt = 0;
 	while (*s)
-	{
-		if (*s != c)
+		if (*(s++) != c)
 		{
 			if (is_start)
 				cnt++;
@@ -30,46 +29,62 @@ static inline int	count_words(const char *s, char c)
 		}
 		else
 			is_start = 1;
-		s++;
-	}
 	return (cnt);
 }
 
-static char			*copy_word(char **arr, const char *s, unsigned int len)
+static char		*ft_strndup_local(const char *s, size_t len)
 {
-	char			*word;
+	size_t	l;
+	char	*dup;
 
-	if (!(word = malloc(len + 1)))
+	l = ft_strlen(s);
+	if (len < l)
+		l = len;
+	if (!(dup = malloc(l + 1)))
 		return (NULL);
-	ft_memcpy(word, s - len, len);
-	word[len] = '\0';
-	*arr = word;
-	return (word);
+	ft_memcpy(dup, s, l);
+	dup[l] = '\0';
+	return (dup);
 }
 
-char				**ft_split(char const *s, char c)
+static char		copy_words(char **arr, const char *s, char c)
 {
-	char			**arr;
-	char			**arr_cp;
-	unsigned int	word_len;
+	const char	*world_start;
+	size_t		word_i;
 
-	if (!s || !(arr = malloc(sizeof(char**) * (count_words(s, c) + 1))))
-		return (NULL);
-	arr_cp = arr;
-	word_len = 0;
-	while (1)
+	world_start = 0;
+	word_i = 0;
+	while (*s)
 	{
-		if (*s != c && *s)
-			word_len++;
-		else if (word_len)
+		if (*s != c && !world_start)
+			world_start = s;
+		s++;
+		if (world_start && (*s == c || *s == '\0'))
 		{
-			if (!copy_word(arr++, s, word_len))
-				return (NULL);
-			word_len = 0;
+			arr[word_i] = ft_strndup_local(world_start, s - world_start);
+			if (!arr[word_i++])
+			{
+				while (--word_i)
+					free(arr);
+				return (0);
+			}
+			world_start = 0;
 		}
-		if (!*(s++))
-			break ;
 	}
-	*arr = NULL;
-	return (arr_cp);
+	arr[word_i] = NULL;
+	return (1);
+}
+
+char			**ft_split(char const *s, char c)
+{
+	char		**arr;
+
+	if (!s)
+		return (NULL);
+	arr = malloc(sizeof(char*) * (count_words(s, c) + 1));
+	if (!arr)
+		return (NULL);
+	if (!copy_words(arr, s, c))
+		return (NULL);
+	return (arr);
 }

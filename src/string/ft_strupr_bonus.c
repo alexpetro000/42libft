@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_islower.c                                       :+:      :+:    :+:   */
+/*   ft_strupr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 01:06:19 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 01:06:53 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/05 21:45:04 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/07 13:47:24 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-int		ft_islower(int c)
+char	*ft_strupr(char *in)
 {
-	return ('a' <= c && c <= 'z');
+	char		*res;
+	char		*s_res;
+
+	res = malloc(ft_strlen(in) + 1);
+	s_res = res;
+	while (*in)
+		*(res++) = ft_toupper(*(in++));
+	*res = '\0';
+	return (s_res);
 }
