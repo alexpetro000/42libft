@@ -1,0 +1,30 @@
+#suite Test_ft_split
+
+#include "libft.h"
+#include <string.h>
+#include <stdio.h>
+
+void test_split(char *s, char c, char **expected)
+{
+	char	**splitted;
+	int		i;
+
+	splitted = ft_split(s, c);
+
+	for(i = 0; expected[i]; i++)
+	{
+		ck_assert_str_eq(expected[i], splitted[i]);
+		free(splitted[i]);
+	}
+	ck_assert_ptr_null(splitted[i]);
+	free(splitted);
+}
+
+#test ft_split_test
+	char **expected = (char*[6]){"split", "this", "for", "me", "!", NULL};
+	test_split("      split       this for   me  !       ", ' ', expected);
+	test_split("$$$$split$this$for$$me$!", '$', expected);
+	test_split("split       this for   me  !       ", ' ', expected);
+	test_split("split       this for   me  !", ' ', expected);
+	test_split("split this for me !", ' ', expected);
+	test_split("", ' ', (char*[1]){NULL});

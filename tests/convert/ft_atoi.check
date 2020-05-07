@@ -1,0 +1,28 @@
+#suite Test_ft_atoi
+
+#include <string.h>
+#include "libft.h"
+
+#test ft_atoi_test
+	ck_assert_int_eq(ft_atoi(""), 0);
+	ck_assert_int_eq(ft_atoi("10"), 10);
+	ck_assert_int_eq(ft_atoi("2147483647"), 2147483647);
+	ck_assert_int_eq(ft_atoi("+2147483647"), 2147483647);
+	ck_assert_int_eq(ft_atoi("   2147483647"), 2147483647);
+	ck_assert_int_eq(ft_atoi("   +2147483647"), 2147483647);
+	ck_assert_int_eq(ft_atoi("-2147483648"), -2147483648);
+	ck_assert_int_eq(ft_atoi(" -2147483648"), -2147483648);
+	ck_assert_int_eq(ft_atoi("    1234   "), 1234);
+	ck_assert_int_eq(ft_atoi("   1234d5678 "), 1234);
+	ck_assert_int_eq(ft_atoi("  98765 123"), 98765);
+	ck_assert_int_eq(ft_atoi(" 3 1 2 3 "), 3);
+	ck_assert_int_eq(ft_atoi(" abdcs "), 0);
+	ck_assert_int_eq(ft_atoi("asdf123 "), 0);
+	ck_assert_int_eq(ft_atoi("a123 "), 0);
+	ck_assert_int_eq(ft_atoi("s 1234"), 0);
+	ck_assert_int_eq(ft_atoi("+s 1234"), 0);
+	ck_assert_int_eq(ft_atoi("s +1234"), 0);
+	ck_assert_int_eq(ft_atoi("s -1234"), 0);
+	ck_assert_int_eq(ft_atoi("\t\v\r\n\f -1234"), -1234);
+	ck_assert_int_eq(ft_atoi("\t\v\r\n\f +-1234"), 0);
+	ck_assert_int_eq(ft_atoi("\t\v\r\n\f -+1234"), 0);

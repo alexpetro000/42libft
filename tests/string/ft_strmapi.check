@@ -1,0 +1,40 @@
+#suite Test_ft_strmapi
+
+#include <string.h>
+#include "libft.h"
+
+void	test_strmapi(char *s, char(*f)(unsigned int, char), char *expected)
+{
+	char *res;
+
+	res = ft_strmapi(s, f);
+	ck_assert_str_eq(res, expected);
+	free(res);
+}
+
+char	strmapi_mapper_i(unsigned int i, char c)
+{
+	return i + '0';
+}
+
+char	strmapi_mapper_ic(unsigned int i, char c)
+{
+	return i + c;
+}
+
+char	strmapi_mapper_c_shift2(unsigned int i, char c)
+{
+	return c + 2;
+}
+
+char	strmapi_mapper_c(unsigned int i, char c)
+{
+	return c;
+}
+
+#test ft_strmapi_test
+	test_strmapi("HelloWorld", strmapi_mapper_i, "0123456789");
+	test_strmapi("HelloWorld!!!!!", strmapi_mapper_i, "0123456789:;<=>");
+	test_strmapi("abcde", strmapi_mapper_ic, "acegi");
+	test_strmapi("abcde", strmapi_mapper_c_shift2, "cdefg");
+	test_strmapi("AlexCool!", strmapi_mapper_c, "AlexCool!");

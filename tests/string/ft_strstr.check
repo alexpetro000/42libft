@@ -1,0 +1,24 @@
+#suite Test_ft_strstr
+
+#include "libft.h"
+#include <string.h>
+#include <stdlib.h>
+
+void test_strstr(char *big, char *little)
+{
+	char *bb = strdup(big);
+	char *ll = strdup(little);
+
+	ck_assert_ptr_eq(strstr(bb, ll), ft_strstr(bb, ll));
+	ck_assert_str_eq(bb, big);
+	ck_assert_str_eq(ll, little);
+
+	free(bb);
+	free(ll);
+}
+
+#test ft_strstr_test
+	test_strstr("qwertyuiop", "rty");
+	test_strstr("abcdededefgh", "defg");
+	test_strstr("abcdededefgh", "defgh");
+	test_strstr("abcabcabcabcdlalaabcdlala", "abcd");

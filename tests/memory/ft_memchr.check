@@ -1,0 +1,18 @@
+#suite Test_ft_memchr
+
+#include <string.h>
+#include "libft.h"
+
+#test ft_memchr_test
+	char s[100];
+	memcpy(s, "Lorem ipsum $dolor sit amet, co~nsectetuer adipiscing el@it. Aenean co#mmodo ligula e!get dolor. Aeeee!", 100);
+	ck_assert_ptr_eq(memchr(s, '$', 100),	ft_memchr(s, '$', 100));
+	ck_assert_ptr_eq(memchr(s, '$', 50),	ft_memchr(s, '$', 50));
+	ck_assert_ptr_eq(memchr(s, '~', 100),	ft_memchr(s, '~', 100));
+	ck_assert_ptr_eq(memchr(s, '~', 30),	ft_memchr(s, '~', 30));
+	ck_assert_ptr_eq(memchr(s, '~', 31),	ft_memchr(s, '~', 31));
+	ck_assert_ptr_eq(memchr(s, '~', 32),	ft_memchr(s, '~', 32));
+	ck_assert_ptr_eq(memchr(s, '~', 33),	ft_memchr(s, '~', 33));
+	ck_assert_ptr_eq(memchr(s, 'a', 100),	ft_memchr(s, 'a', 100));
+	ck_assert_ptr_eq(memchr(s, 'a', 35),	ft_memchr(s, 'a', 35));
+	ck_assert_ptr_eq(memchr(s, '!', 35),	ft_memchr(s, '!', 35));

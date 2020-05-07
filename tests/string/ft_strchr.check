@@ -1,0 +1,24 @@
+#suite Test_ft_strchr
+
+#include <string.h>
+#include "libft.h"
+
+void	test_strchr(char *s, char ch)
+{
+	char *ss = strdup(s);
+
+	ck_assert_ptr_eq(strchr(s, ch), ft_strchr(s, ch));
+	ck_assert_str_eq(ss, s);
+	free(ss);
+}
+
+#test ft_strchr_test
+	test_strchr("", 'a');
+	test_strchr("qwertt", 'a');
+	test_strchr("afkfdba;", 'a');
+	test_strchr("sfafadasdadasd", 's');
+	test_strchr("lkjhgfdsa", 'l');
+	test_strchr("ooooooooooo", 'o');
+	test_strchr("ooooooooooo", 'r');
+	test_strchr("cccccca", 'a');
+	test_strchr("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq!", '!');

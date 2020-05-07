@@ -1,0 +1,15 @@
+#suite Test_ft_bzero
+
+#include <string.h>
+#include "libft.h"
+
+#test ft_bzero_test
+	char buf_expected[10000];
+	char buf_actual[10000];
+
+	memset(buf_actual, '!', 10000);
+	memset(buf_expected, '!', 10000);
+
+	ft_bzero(buf_actual, 1234);
+	bzero(buf_expected, 1234);
+	ck_assert_mem_eq(buf_expected, buf_actual, 10000);

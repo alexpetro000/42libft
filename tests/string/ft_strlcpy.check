@@ -1,0 +1,40 @@
+#suite Test_ft_strlcpy
+
+#include <string.h>
+#include "libft.h"
+#include <bsd/string.h>
+
+void	test_strlcpy(char *s, int n)
+{
+	char	buf_expect[100];
+	char	buf_actual[100];
+
+	memset(buf_expect, '!', 100);
+	memset(buf_actual, '!', 100);
+	buf_expect[99] = '\0';
+	buf_actual[99] = '\0';
+
+	ck_assert_int_eq(strlcpy(buf_expect, s, n), ft_strlcpy(buf_actual, s, n));
+	ck_assert_str_eq(buf_expect, buf_actual);
+}
+
+#test ft_strlcpy_test
+	test_strlcpy("", 10);
+	test_strlcpy("qwertt", 10);
+	test_strlcpy("afkfdba;", 10);
+	test_strlcpy("sfafadasdadad", 100);
+	test_strlcpy("lkjhgfdsa", 100);
+	test_strlcpy("ooooooooooo", 100);
+	test_strlcpy("cccccc", 50);
+	test_strlcpy("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", 15);
+	test_strlcpy("cccc", 16);
+	test_strlcpy("cccc", 0);
+	test_strlcpy("a", 0);
+	test_strlcpy("", 0);
+	test_strlcpy("b", 1);
+	test_strlcpy("lala", 1);
+	test_strlcpy("lala", 3);
+	test_strlcpy("lala", 4);
+	test_strlcpy("lala", 5);
+	test_strlcpy("lala", 6);
+	test_strlcpy("AlexAfreeze", 100);

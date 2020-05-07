@@ -1,0 +1,35 @@
+#suite Test_ft_itoa
+
+#include "libft.h"
+#include "string.h"
+
+#test ft_itoa_test
+	char *s;
+
+	s = ft_itoa(12345);
+	ck_assert_str_eq(s, "12345");
+	free(s);
+
+	s = ft_itoa(-12345);
+	ck_assert_str_eq(s, "-12345");
+	free(s);
+
+	s = ft_itoa(-2147483648);
+	ck_assert_str_eq(s, "-2147483648");
+	free(s);
+
+	s = ft_itoa(2147483647);
+	ck_assert_str_eq(s, "2147483647");
+	free(s);
+
+	s = ft_itoa(493020);
+	ck_assert_str_eq(s, "493020");
+	free(s);
+
+	s = ft_itoa(-12311);
+	ck_assert_str_eq(s, "-12311");
+	free(s);
+
+	s = ft_itoa(0);
+	ck_assert_str_eq(s, "0");
+	free(s);

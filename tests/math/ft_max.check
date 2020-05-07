@@ -1,0 +1,12 @@
+#suite Test_ft_max
+
+#include <limits.h>
+#include "libft.h"
+
+#test ft_max_test
+	fail_unless(ft_max(INT32_MAX, 2) == INT32_MAX, "INT32_MAX vs 2 failed");
+	fail_unless(ft_max(INT32_MAX, INT32_MAX) == INT32_MAX, "INT32_MAX vs INT32_MAX failed");
+    fail_unless(ft_max(INT32_MIN, INT32_MAX) == INT32_MAX, "INT32_MIN vs INT32_MAX failed");
+    fail_unless(ft_max(-3, 2) == 2, "-3 vs 2 failed");
+    fail_unless(ft_max(0, -2) == 0, "0 vs -2 failed");
+    fail_unless(ft_max(-3, -2) == -2, "-3 vs -2 failed");

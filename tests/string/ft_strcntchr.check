@@ -1,0 +1,13 @@
+#suite Test_ft_strcntchr
+
+#include "libft.h"
+#include <string.h>
+
+#test ft_ctrcntstr_test
+	ck_assert_int_eq(ft_strcntchr("abacdefa", 'a'), 3);
+	ck_assert_int_eq(ft_strcntchr("aabacdefa", 'a'), 4);
+	ck_assert_int_eq(ft_strcntchr("aabacdefaa", 'a'), 5);
+	ck_assert_int_eq(ft_strcntchr("baabacdefaab", 'a'), 5);
+	ck_assert_int_eq(ft_strcntchr("baabacdefaab", 'a'), 5);
+	ck_assert_int_eq(ft_strcntchr("b~aabac~~~~def~aab", '~'), 6);
+	ck_assert_int_eq(ft_strcntchr("b~aabac~~~~def~aab", '\0'), 1);
