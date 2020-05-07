@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 00:52:28 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 00:59:58 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/07 02:02:55 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int		ft_isalpha(int c)
 {
-	return (ft_isupper(c) || ft_islower(c));
+	return (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z'));
 }
