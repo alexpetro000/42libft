@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 02:30:32 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/04 02:29:36 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/07 13:49:53 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	l = ft_strlen(s);
 	if (l < start)
 		l = 0;
+	else if (l - start < len)
+		l = l - start;
 	else
-		l = ft_min(l - start, len);
+		l = len;
 	ss = malloc(l + 1);
 	if (!ss)
 		return (NULL);

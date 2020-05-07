@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isupper.c                                       :+:      :+:    :+:   */
+/*   ft_strlwr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 00:53:55 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/01 01:27:36 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/05 22:06:44 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/07 02:23:32 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-int		ft_isupper(int c)
+char			*ft_strlwr(char *in)
 {
-	return ('A' <= c && c <= 'Z');
+	char		*res;
+	char		*s_res;
+
+	res = malloc(ft_strlen(in) + 1);
+	s_res = res;
+	while (*in)
+		*(res++) = ft_tolower(*(in++));
+	*res = '\0';
+	return (s_res);
 }

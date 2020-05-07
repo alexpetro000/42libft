@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_max_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 02:33:09 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/04 01:47:21 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/01 03:23:04 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/07 02:11:53 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+int		ft_max(int a, int b)
 {
-	char	*d;
-
-	d = dest;
-	while ((*(d++) = *(src++)))
-		;
-	return (dest);
+	return (a > b ? a : b);
 }

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_isxdigit_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/04 20:49:04 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/04 21:41:16 by afreeze          ###   ########.fr       */
+/*   Created: 2020/05/01 01:37:53 by afreeze           #+#    #+#             */
+/*   Updated: 2020/05/07 02:03:28 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_putstr(char *s)
+int		ft_isxdigit(int c)
 {
-	ft_putstr_fd(s, 1);
+	return (ft_isdigit(c)
+		|| ('A' <= c && c <= 'F')
+		|| ('a' <= c && c <= 'f'));
 }
