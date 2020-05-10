@@ -6,7 +6,7 @@
 /*   By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 15:29:45 by afreeze           #+#    #+#             */
-/*   Updated: 2020/05/07 15:25:29 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/10 18:12:11 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,19 @@ static char		*ft_strndup_local(const char *s, size_t len)
 
 static char		copy_words(char **arr, const char *s, char c)
 {
-	const char	*world_start;
+	const char	*word_start;
 	size_t		word_i;
 
-	world_start = 0;
+	word_start = 0;
 	word_i = 0;
 	while (*s)
 	{
-		if (*s != c && !world_start)
-			world_start = s;
+		if (*s != c && !word_start)
+			word_start = s;
 		s++;
-		if (world_start && (*s == c || *s == '\0'))
+		if (word_start && (*s == c || *s == '\0'))
 		{
-			arr[word_i] = ft_strndup_local(world_start, s - world_start);
+			arr[word_i] = ft_strndup_local(word_start, s - word_start);
 			if (!arr[word_i++])
 			{
 				while (--word_i)
@@ -69,7 +69,7 @@ static char		copy_words(char **arr, const char *s, char c)
 				free(arr);
 				return (0);
 			}
-			world_start = 0;
+			word_start = 0;
 		}
 	}
 	arr[word_i] = NULL;
