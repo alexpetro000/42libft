@@ -6,7 +6,7 @@
 #    By: afreeze <afreeze@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/01 17:30:20 by afreeze           #+#    #+#              #
-#    Updated: 2020/05/10 18:28:07 by afreeze          ###   ########.fr        #
+#    Updated: 2020/05/10 19:20:35 by afreeze          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ F_PURPLE		= \e[38;5;93m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(F_YELLOW)Archiving\t\t$(F_BOLD)$@$(F_NONE)"
+	@echo "$(F_YELLOW)Archiving\t\t$(F_BOLD)main$(F_NONE)$(F_YELLOW) part"
 	@ar -rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
 
@@ -73,8 +73,9 @@ $(DIR_OBJ)/%.o : %.c
 # ------------------------------------------------------------------------------
 
 bonus: all $(OBJS_BONUS)
-	ar -rc $(NAME) $(OBJS_BONUS)
-	ranlib $(NAME)
+	@echo "$(F_YELLOW)Archiving\t\t$(F_BOLD)bonus$(F_NONE)$(F_YELLOW) part"
+	@ar -rc $(NAME) $(OBJS_BONUS)
+	@ranlib $(NAME)
 
 # ------------------------------------------------------------------------------
 
