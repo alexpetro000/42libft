@@ -6,7 +6,7 @@
 /*   By: alexp <alexp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:37:48 by alexp             #+#    #+#             */
-/*   Updated: 2020/05/10 18:56:44 by afreeze          ###   ########.fr       */
+/*   Updated: 2020/05/10 19:26:15 by afreeze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void			ft_putnbr_fd(int n, int fd);
 */
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
+int				ft_isalnum(int c);
 int				ft_isprint(int c);
 int				ft_isascii(int c);
 int				ft_tolower(int c);
